@@ -1,3 +1,16 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+
+<h4>お気に入りしたブログたち</h4>
+<table>
+  <tr>
+  <% if @favorite_list.present? %>
+    <% @favorite_list.each do |blog| %>
+        <td><%= blog.title %></td>
+        <td><%= blog.content %></td>
+    <% end %>
+  <% end %>
+  </tr>
+</table>
+<br>
 <%= link_to 'ブログを投稿する', new_blog_path %>
